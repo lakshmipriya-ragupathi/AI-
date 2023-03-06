@@ -130,9 +130,16 @@ def minimax_alpha_beta(state):
             v = min_val
             move = action
         alpha = max(alpha, v)
-    return move
+    return move, v
 
 
 print(S0)
-print("For X to win, current move of X should be : ", minimax_alpha_beta(S0))
+move, chance = minimax_alpha_beta(S0)
+if chance == 1:
+    chance = 'win'
+if chance == 0:
+    chance = 'draw'
+if chance == -1:
+    chance = 'lose'
+print("For X to",chance, "current move of X should be :",move)
 
